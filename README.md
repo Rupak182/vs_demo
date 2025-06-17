@@ -57,6 +57,25 @@ Many of the core components and extensions to VS Code live in their own reposito
 
 VS Code includes a set of built-in extensions located in the [extensions](extensions) folder, including grammars and snippets for many languages. Extensions that provide rich language support (code completion, Go to Definition) for a language have the suffix `language-features`. For example, the `json` extension provides coloring for `JSON` and the `json-language-features` extension provides rich language support for `JSON`.
 
+## Modified Files
+
+This fork includes several modifications to the VS Code source code:
+
+### Core Layout Changes
+- **`src/vs/workbench/browser/layout.ts`** - Added support for an intermediate part in the workbench layout system
+- **`src/vs/workbench/browser/workbench.ts`** - Integrated the intermediate part into the main workbench rendering
+- **`src/vs/workbench/services/layout/browser/layoutService.ts`** - Added `INTERMEDIATE_PART` enum and service definition
+
+### New Components
+- **`src/vs/workbench/browser/parts/intermediate/intermediatePart.ts`** - New intermediate part component with placeholder content
+- **`src/vs/workbench/browser/parts/intermediate/media/intermediatePart.css`** - Styling for the intermediate part
+
+### Configuration Changes
+- **`src/vs/workbench/workbench.common.main.ts`** - Added intermediate part module import
+- **`.gitignore`** - Added `chat.md` to ignored files
+
+The intermediate part serves as a new UI component positioned between the sidebar and editor areas, providing additional workspace for future functionality.
+
 ## Development Container
 
 This repository includes a Visual Studio Code Dev Containers / GitHub Codespaces development container.
